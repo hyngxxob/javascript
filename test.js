@@ -1,11 +1,15 @@
 (function () {
     paintTodo();
+    Menubar();
 })();
 
 function paintTodo() {
     const header = document.getElementById('header');
 
     const title = document.createElement("h1");
+
+    const input_container = document.createElement("div");
+    input_container.setAttribute('id','input-container');
 
     const inputBox = document.createElement("input");
     inputBox.style.width = "80%";
@@ -15,10 +19,7 @@ function paintTodo() {
 
     const inputButton = document.createElement("button");
     inputButton.style.marginLeft = "5%";
-    
-    title.innerHTML = "T&nbsp;&nbsp;O&nbsp;&nbsp;D&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;i&nbsp;&nbsp;s&nbsp;&nbsp;t "
-    title.style.marginBottom = "5%";
-
+    inputButton.setAttribute('id','inputBtn')
     inputButton.innerText = "입력"
     inputButton.addEventListener("click", input_lst);
     inputBox.addEventListener("keydown",(e) =>{
@@ -26,17 +27,50 @@ function paintTodo() {
             input_lst();
         }
     });
+    
+    title.innerHTML = "T&nbsp;&nbsp;O&nbsp;&nbsp;D&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;i&nbsp;&nbsp;s&nbsp;&nbsp;t "
+    title.style.marginBottom = "5%";
 
     header.appendChild(title);
-    header.appendChild(inputBox);
-    header.appendChild(inputButton);
+    input_container.appendChild(inputBox);
+    input_container.appendChild(inputButton);
+    header.appendChild(input_container)
     
 }
+
+function Menubar() {
+    const base = document.getElementById("menu-container");
+    const main = document.createElement("div");
+    main.setAttribute('class','menu-item');
+    main.addEventListener('click', paintMain);
+    main.innerHTML = "Todolist";
+    
+
+    const map = document.createElement("div");
+    map.setAttribute('class','menu-item');
+    map.addEventListener('click', paintMap);
+    map.innerHTML = "지도";
+
+    base.appendChild(main);
+    base.appendChild(map);
+}
+
+function paintMain() {
+    document.getElementById("list-container").style.visibility = "visible";
+}
+
+function paintMap() {
+    document.getElementById("list-container").style.visibility = "hidden";
+    const temp = document.getElementById("map-container");
+    const test = document.createElement("h1");
+    temp.appendChild(test);
+}
+
 
 function input_lst(){
     const input = document.getElementById("input").value;
     if(input != "") {
-        const items_container = document.getElementById("items_container");
+        const items_container = document.getElementById("items-container");
 
         const list_item = document.createElement("div");
         list_item.setAttribute('id','list-item');
