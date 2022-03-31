@@ -1,20 +1,24 @@
 (function () {
     paintTodo();
-    document.addEventListener('keydown',)
 })();
 
 function paintTodo() {
     const header = document.getElementById('header');
 
-
     const title = document.createElement("h1");
+
     const inputBox = document.createElement("input");
-    const inputButton = document.createElement("button");
-    
-    
+    inputBox.style.width = "80%";
+    inputBox.style.fontSize = "2rem";
     inputBox.setAttribute('id', 'input');
     inputBox.type = 'text';
-    title.innerHTML = "TODO List"
+
+    const inputButton = document.createElement("button");
+    inputButton.style.marginLeft = "5%";
+    
+    title.innerHTML = "T&nbsp;&nbsp;O&nbsp;&nbsp;D&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;i&nbsp;&nbsp;s&nbsp;&nbsp;t "
+    title.style.marginBottom = "5%";
+
     inputButton.innerText = "입력"
     inputButton.addEventListener("click", input_lst);
     inputBox.addEventListener("keydown",(e) =>{
@@ -43,6 +47,7 @@ function input_lst(){
         todo.innerHTML = input;
 
         const chkBox = document.createElement("input");
+        chkBox.style.marginRight = "3%";
         chkBox.setAttribute('type','checkbox');
         chkBox.addEventListener('click', chk_indicator)
 
@@ -69,6 +74,8 @@ function deleteList(e) {
 function chk_indicator(e) {
     const indicator = e.target.checked;
     if(indicator) {
-        document.getElementById('todo').setAttribute('id','todo_Checked');
-    } else document.getElementById('todo_Checked').setAttribute('id','todo');
+        e.target.nextSibling.id = "todo_Checked";
+    } else {
+        e.target.nextSibling.id = "todo";
+    }
 }

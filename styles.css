@@ -1,17 +1,16 @@
-#demo {
-    font-size: 50px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 #contents {
-    padding: 0 30%;
+    padding: 5% 20%;
+    margin-bottom: 3%;
+    background-color: #CED8F6;
 }
 
 #container {
     text-align: center;
-}
-
-#list_container {
-    padding : 10% 0;
 }
 
 #list-item {
@@ -26,7 +25,7 @@
 #items_container > #list-item {
     display: flex;
     align-items: center;
-    width: 100%;
+    font-size: 1.5rem;
     border: #000 2px;
-    padding : 2%;
+    padding : 1% 5%;
 }
