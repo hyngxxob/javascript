@@ -14,9 +14,19 @@
     padding : 10% 0;
 }
 
-#lists > #list-item {
+#list-item {
     display: flex;
-    justify-content: space-between;
+}
+
+#todo_Checked { 
+    text-decoration: line-through;
+    color: dimgray;
+}
+
+#items_container > #list-item {
+    display: flex;
+    align-items: center;
     width: 100%;
     border: #000 2px;
+    padding : 2%;
 }

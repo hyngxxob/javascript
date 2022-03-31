@@ -32,17 +32,29 @@ function paintTodo() {
 function input_lst(){
     const input = document.getElementById("input").value;
     if(input != "") {
-        const lists = document.getElementById("lists");
-        const removeButton = document.createElement("button");
-        const list = document.createElement("div");
+        const items_container = document.getElementById("items_container");
 
-        list.setAttribute('id','list-item');
-        list.innerHTML = input;
+        const list_item = document.createElement("div");
+        list_item.setAttribute('id','list-item');
+
+        const todo = document.createElement("span");
+        todo.setAttribute('id', 'todo');
+        todo.style.width = "100%";
+        todo.innerHTML = input;
+
+        const chkBox = document.createElement("input");
+        chkBox.setAttribute('type','checkbox');
+        chkBox.addEventListener('click', chk_indicator)
+
+        const removeButton = document.createElement("button");
         removeButton.innerText = "X";
         removeButton.addEventListener('click', deleteList);
 
-        lists.appendChild(list);
-        list.appendChild(removeButton);
+        
+        list_item.appendChild(chkBox);
+        list_item.appendChild(todo);
+        list_item.appendChild(removeButton);
+        items_container.appendChild(list_item);
 
         console.log("Input pressed");
         document.getElementById("input").value = "";
@@ -52,4 +64,11 @@ function input_lst(){
 function deleteList(e) {
     const removeOne = e.target.parentElement;
     removeOne.remove();
+}
+
+function chk_indicator(e) {
+    const indicator = e.target.checked;
+    if(indicator) {
+        document.getElementById('todo').setAttribute('id','todo_Checked');
+    } else document.getElementById('todo_Checked').setAttribute('id','todo');
 }
