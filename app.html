@@ -9,8 +9,22 @@
             <div id="header"></div>
         </div>
     </div>
-    <div id="map-container"></div>
     <div id="menu-container"></div>
+    <div id="map-container">
+        <div id="map" style="width:500px;height:400px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d4b7f77a93938d1aa48f96ca9fce3580"></script>
+        <div id="map" style="width:500px;height:400px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 APP KEY를 넣으시면 됩니다."></script>
+        <script>
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                level: 3
+            };
+    
+            var map = new kakao.maps.Map(container, options);
+        </script>
+    </div>
     <div id="list-container">
         <div id="items-container"></div>
     </div>

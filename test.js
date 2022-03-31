@@ -4,6 +4,7 @@
 })();
 
 function paintTodo() {
+    document.getElementById("map-container").style.display = "none";
     const header = document.getElementById('header');
 
     const title = document.createElement("h1");
@@ -12,8 +13,11 @@ function paintTodo() {
     input_container.setAttribute('id','input-container');
 
     const inputBox = document.createElement("input");
-    inputBox.style.width = "80%";
+    inputBox.style.width = "60%";
     inputBox.style.fontSize = "2rem";
+    inputBox.style.borderRadius = "16px";
+    inputBox.style.border = "0";
+    inputBox.style.padding = "0 48px";
     inputBox.setAttribute('id', 'input');
     inputBox.type = 'text';
 
@@ -56,14 +60,14 @@ function Menubar() {
 }
 
 function paintMain() {
-    document.getElementById("list-container").style.visibility = "visible";
+    document.getElementById("list-container").style.display = "block";
+    document.getElementById("map-container").style.display = "none";
 }
 
 function paintMap() {
-    document.getElementById("list-container").style.visibility = "hidden";
+    document.getElementById("map-container").style.display = "block";
+    document.getElementById("list-container").style.display = "none";
     const temp = document.getElementById("map-container");
-    const test = document.createElement("h1");
-    temp.appendChild(test);
 }
 
 
@@ -113,3 +117,4 @@ function chk_indicator(e) {
         e.target.nextSibling.id = "todo";
     }
 }
+ 
